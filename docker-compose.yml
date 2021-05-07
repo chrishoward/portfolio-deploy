@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  db:
+    image: "postgres:alpine"
+    container_name: portfolio-db
+    ports:
+      - "5432:5432"
+    volumes:
+      - portfolio-db-data:/var/lib/postgresql/data
+    env_file:
+      - .env
+  api:
+    build:
+      context: ../portfolio-api
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+  ui:
+    build:
+      context: ../portfolio-ui
+    env_file:
+      - .env
+
+volumes:
+  portfolio-db-data:

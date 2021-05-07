@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+    image: portfolio-api:dev
+    container_name: portfolio-api-dev
+    volumes:
+      - ../portfolio-api:/app
+  ui:
+    build:
+      dockerfile: Dockerfile.dev
+    image: portfolio-ui:dev
+    container_name: portfolio-ui-dev
+    ports:
+      - "80:3000"
+    volumes:
+      - ../portfolio-ui:/app
+    env_file:
+      - .env.dev
