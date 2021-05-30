@@ -9,9 +9,10 @@ services:
   ui:
     build:
       dockerfile: Dockerfile.prod
+      args:
+        - REACT_APP_API_HOST=ec2-13-211-253-14.ap-southeast-2.compute.amazonaws.com 
+        - REACT_APP_API_PORT=8080
     image: portfolio-ui:prod
     container_name: portfolio-ui-prod
     ports:
       - "80:80"
-    env_file:
-      - .env.prod
