@@ -19,3 +19,13 @@ services:
       - ../portfolio-ui:/app
     env_file:
       - .env.dev
+  test:
+    build:
+      context: ../portfolio-ui
+      dockerfile: Dockerfile.test
+    image: portfolio-ui:test
+    container_name: portfolio-ui-test
+    volumes:
+      - ../portfolio-ui:/app
+    env_file:
+      - .env.test
