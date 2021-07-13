@@ -13,6 +13,8 @@ jobs:
     steps:
       # - name: Run a one-line script
       # run: echo Hello, world!
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: Install SSH key in runner environment
         uses: shimataro/ssh-key-action@v2
@@ -22,7 +24,7 @@ jobs:
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
       - name: Test
-        run: ssh ${{ secrets.USERNAME }}@${{ secrets.KNOWN_HOSTS }}
+        run: sh deploy-to-aws.sh ${{ secrets.EC2_USER }} ${{ secrets.EC2_HOST }}
       # - name: Run shell script
       # to SSH into remote EC2 instance and pull/deploy services
       # run: ./deploy-to-aws.sh
