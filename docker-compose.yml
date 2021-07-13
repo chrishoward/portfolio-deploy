@@ -10,6 +10,17 @@ services:
       - portfolio-db-data:/var/lib/postgresql/data
     env_file:
       - .env
+  db-init:
+    image: "jbergknoff/postgresql-client:latest"
+    container_name: portfolio-db-init
+    volumes: 
+      - ../portfolio-db:/sql
+    entrypoint: /bin/sh
+    command: /sql/docker-entrypoint.sh
+    depends_on:
+      - db
+    env_file:
+      - .env
   api:
     build:
       context: ../portfolio-api
