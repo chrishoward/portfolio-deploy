@@ -11,19 +11,18 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      # - name: Run a one-line script
+      # run: echo Hello, world!
 
-      # - name: Checkout branch
-      # uses: actions/checkout@v2
-#
-# - name: Install SSH key in runner environment
-# uses: shimataro/ssh-key-action@v2
-# with:
-# key: ${{ secrets.SSH_KEY }}
-# name: id_rsa
-# known_hosts: ${{ secrets.KNOWN_HOSTS }}
-#
-# - name: Run shell script to SSH into remote EC2 instance and pull/deploy services
-# run: ./deploy-to-aws.sh
+      - name: Install SSH key in runner environment
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          name: id_rsa
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+
+      - name: Test
+        run: ssh ${{ secrets.USERNAME }}@${{ secrets.KNOWN_HOSTS }}
+      # - name: Run shell script
+      # to SSH into remote EC2 instance and pull/deploy services
+      # run: ./deploy-to-aws.sh
