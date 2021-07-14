@@ -1,4 +1,5 @@
 #!/bin/sh
+ssh $EC2_USER@$EC2_HOST
 
 # Navigate to repo folder
 cd projects/portfolio-ui
