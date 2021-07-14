@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Navigate to repo folder
 cd projects/portfolio-ui
 # Discard any local unsaved changes (package-lock.json usually). These prevent 'git pull' 
