@@ -5,14 +5,14 @@ git checkout -- .
 # Pull updates
 git pull
 
-cd projects/portfolio-api
+cd ../portfolio-api
 git checkout -- .
 git pull
 
-cd projects/portfolio-db
+cd ../portfolio-db
 git checkout -- .
 git pull
 
-cd projects/portfolio-deploy
+cd ../portfolio-deploy
 git checkout -- .
 git pull
