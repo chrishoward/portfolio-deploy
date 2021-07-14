@@ -1,23 +1,21 @@
 #!/bin/sh
-ssh $EC2_USER@$EC2_HOST
+# ssh $EC2_USER@$EC2_HOST
 
-# # Navigate to repo folder
-# cd projects/portfolio-ui
-# # Discard any local unsaved changes (package-lock.json usually). These prevent 'git pull' 
-# git checkout -- .
-# # Pull updates
-# git pull
+# Navigate to repo folder
+cd projects/portfolio-ui
+# Discard any local unsaved changes (package-lock.json usually). These prevent 'git pull' 
+git checkout -- .
+# Pull updates
+git pull
 
-# cd ../portfolio-api
-# git checkout -- .
-# git pull
+cd ../portfolio-api
+git checkout -- .
+git pull
 
-# cd ../portfolio-db
-# git checkout -- .
-# git pull
+cd ../portfolio-db
+git checkout -- .
+git pull
 
-# cd ../portfolio-deploy
-# git checkout -- .
-# git pull
-
-ls
+cd ../portfolio-deploy
+git checkout -- .
+git pull
